@@ -8,7 +8,8 @@ export default class Home extends React.Component {
         super(props);
         this.state = {
             phoneNo: '',
-            code: ''
+            code: '',
+            id: 3
         };
 
         this.handleInputNo = this.handleInputNo.bind(this);
@@ -31,7 +32,7 @@ export default class Home extends React.Component {
             phoneReg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/,
             codeReg = /^\d{6}$/
         if(!phoneNo) {
-            message.info('电话号码不能为空');
+            message.info('电话号码不能为空')
             return
         }
         if(!phoneReg.test(phoneNo)) {
@@ -39,7 +40,7 @@ export default class Home extends React.Component {
             return
         }
         if(!code) {
-            message.info('验证码不能为空');
+            message.info('验证码不能为空')
             return
         }
         if(!codeReg.test(code)) {
@@ -47,6 +48,9 @@ export default class Home extends React.Component {
             return
         }
         alert('登录成功')
+        this.props.history.push({
+            pathname: '/detail/' + this.state.id,
+        })
         event.preventDefault();
     }
      info (){
@@ -54,15 +58,6 @@ export default class Home extends React.Component {
       };
     render() {
         return (
-            // <div>
-            //     <a href='#/'>回到home</a>
-            //     <button onClick={() => this.props.history.push({
-            //             pathname: '/detail',
-            //             state: {
-            //                 id: 3
-            //             }
-            //     })}>通过函数跳转</button>
-            // </div>
             <div className='home'>
                 <div className='login'>
                     <div className='login-title'>登录</div>
