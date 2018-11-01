@@ -1,0 +1,57 @@
+.home {
+  width: 100%;
+  font-size: 20px;
+  .login {
+    margin-top: 40px;
+    &-title {
+      text-align: center;
+    }
+    &-info {
+      margin-top: 20px;
+      >div {
+        width: 80%;
+        border: 1px solid #eee;
+        margin-left: 10%;
+      }
+      .phone {
+        >input {
+          width: 95%;
+          border: none;
+          outline: none;
+          height: 30px;
+          line-height: 30px;
+        }
+      }
+      .code {
+        position: relative;
+        margin-top: 10px;
+        >input {
+          width: 50%;
+          height: 30px;
+          line-height: 30px;
+          margin-left: 0;
+          border: none;
+          outline: none;
+        }
+        >span {
+          position: absolute;
+          right: 0;
+          top: 1px;
+          border: 1px solid #efefef;
+          border-radius: 5px;
+          font-size: 12px;
+          display: inline-block;
+          padding: 5px 8px;
+        }
+      }
+    }
+    &-btn {
+      margin: 20px 10%;
+      font-size: 14px;
+      text-align: center;
+      padding: 5px;
+      background: #FDDB00;
+      border-radius: 5px;
+    }
+  }
+}

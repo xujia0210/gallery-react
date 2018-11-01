@@ -23,5 +23,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "element-ui": "^2.4.9",
+    "node-sass": "^4.9.4",
+    "sass-loader": "^7.1.0",
+    "scss": "^0.2.4"
+  }
 }
