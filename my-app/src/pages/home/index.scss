@@ -14,24 +14,26 @@
         margin-left: 10%;
       }
       .phone {
-        >input {
+        >Input {
           width: 95%;
           border: none;
           outline: none;
           height: 30px;
           line-height: 30px;
+          box-shadow: none;
         }
       }
       .code {
         position: relative;
         margin-top: 10px;
-        >input {
+        >Input {
           width: 50%;
           height: 30px;
           line-height: 30px;
           margin-left: 0;
           border: none;
           outline: none;
+          box-shadow: none;
         }
         >span {
           position: absolute;
@@ -46,12 +48,10 @@
       }
     }
     &-btn {
+      width: 80%;
       margin: 20px 10%;
       font-size: 14px;
       text-align: center;
-      padding: 5px;
-      background: #FDDB00;
-      border-radius: 5px;
     }
   }
 }
