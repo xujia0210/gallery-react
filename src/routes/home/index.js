@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Router, Route, Link, BrowserRouter } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import 'antd/dist/antd.css';
-import logo from '../../logo.svg';
 import './index.css'
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -27,7 +26,6 @@ class SiderDemo extends Component {
                     collapsible
                     collapsed={this.state.collapsed}
                 >
-                    <div className="logo" />
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                         <Menu.Item key="1">
                             <Icon type="user" />
@@ -54,9 +52,7 @@ class SiderDemo extends Component {
                             />
                         </span>
                         <span style={{color:'#fff', paddingLeft:'2%', fontSize:'1.4em'}}>Information Management System</span>
-                        <span style={{color:'#fff', float:'right', paddingRight:'1%'}}>
-                            <img src={logo} className="App-logo" alt="logo" />
-                        </span>
+                       
                     </Header>
                     <Content style={{ margin: '0 16px' }}>
                         <Breadcrumb style={{ margin: '12px 0' }}>
