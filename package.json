@@ -8,7 +8,6 @@
   "dependencies": {
     "antd": "^3.11.6",
     "moment": "^2.23.0",
-    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
@@ -31,6 +30,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-loader": "^8.0.4"
+    "babel-loader": "^8.0.4",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
   }
 }

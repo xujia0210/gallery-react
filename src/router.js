@@ -9,7 +9,7 @@ class Routers extends Component {
       return(            
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/" component={App}/>
             <Route path="/home" component={Home}/>
             <Route path="/login" component={Login}/>
             <Route path="/nav" component={Nav}/>

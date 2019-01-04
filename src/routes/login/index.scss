@@ -1,0 +1,21 @@
+.login-form {
+  font-size: 24px;
+  color: #333;
+  border: 1px solid #efefef;
+  width: 30%;
+  padding: 20px;
+  margin: 15% auto;
+  .login-title {
+    text-align: center;
+
+    .input-box {
+      display: -webkit-flex;
+      flex-direction: row;
+      border: 1px solid red;
+    }
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+}
