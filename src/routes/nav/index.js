@@ -1,6 +1,5 @@
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import React, { Component } from 'react';
-import {Router, Route} from 'react-router'
 import 'antd/dist/antd.css';
 import './index.css'
 const { Header, Content, Footer, Sider } = Layout;

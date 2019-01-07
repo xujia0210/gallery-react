@@ -1,15 +1,17 @@
 import { Form, Icon, Input, Button, Checkbox, } from 'antd';
 import React, { Component } from 'react';
-import { Router, Route, Link, BrowserRouter } from 'react-router-dom';
-import { Redirect } from 'react-router';
+import PropTypes from 'prop-types'
 import 'antd/dist/antd.css';
 import './index.scss';
 
 class NormalLoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
-      if (!err) {
+      if(err) return
         console.log('Received values of form: ', values);
         let data = {}
         data.username = values.userName
@@ -17,13 +19,14 @@ class NormalLoginForm extends React.Component {
         data.remember = values.remember
         console.log('data--', data)
         this.props.history.push('/home')
-      }
+
     });
   }
 
   render() {
     const { getFieldDecorator } = this.props.form;
-    
+    console.log(123, this.props)
+    const {dispatch} = this.props;
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <div className="login-title">登录</div>
