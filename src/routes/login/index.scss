@@ -1,20 +1,22 @@
-.login-form {
-  font-size: 24px;
-  color: #333;
-  border: 1px solid #efefef;
-  width: 30%;
-  padding: 20px;
-  margin: 15% auto;
-  .login-title {
+
+.login-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border: 1px solid hsl(0, 0%, 94%);
+  padding: 60px 40px;
+  .login {
+    font-size: 32px;
+    font-weight: bold;
     text-align: center;
-
-    .input-box {
-      display: -webkit-flex;
-      flex-direction: row;
-      border: 1px solid red;
-    }
   }
-
+  .login-form {
+    max-width: 300px;
+  }
+  .login-form-forgot {
+    float: right;
+  }
   .login-form-button {
     width: 100%;
   }

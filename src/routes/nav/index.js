@@ -1,9 +1,12 @@
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import React, { Component } from 'react';
+import {Router, Route} from 'react-router'
 import 'antd/dist/antd.css';
 import './index.css'
+import menuConfig from '../../components/menuConfig'
 const { Header, Content, Footer, Sider } = Layout;
-
+const SubMenu = Menu.SubMenu;
+const MenuItem = Menu.Item;
 class Nav extends Component {
     state = {
         collapsed: false,
@@ -15,7 +18,42 @@ class Nav extends Component {
             collapsed: !this.state.collapsed,
         });
     }
-
+    handleMenuChange = (item, key, keyPath) => {             
+        console.log(123,item, key, keyPath)    
+        this.props.history.push(item.key)
+    }
+    handleMenuItemChange = (item, key, keyPath) => {
+        console.log(234,item, key, keyPath)   
+        if(item && item.key == '/home') {
+            this.props.history.push(item.key)
+        }
+    }
+    componentWillMount() {
+        const menuList = this.renderMenu(menuConfig);
+        console.log(menuList)
+        this.setState({
+            menuList
+        })
+    }
+    //使用递归
+    renderMenu = (data) => {
+        console.log(1,data)
+        return data.map((item) => {
+            if (item.children) {
+                return (
+                    <SubMenu key={item.key} title={item.title} onClick={this.handleMenuChange}>
+                        {this.renderMenu(item.children)}
+                    </SubMenu>
+                )
+            } else {
+                return (
+                    <MenuItem key={item.key} title={item.title} onClick={this.handleMenuItemChange}>
+                        {item.title}
+                    </MenuItem>
+                )
+            }
+        })
+    };
     render() {
         return (
             <Layout>
@@ -24,28 +62,11 @@ class Nav extends Component {
                     collapsible
                     collapsed={this.state.collapsed}
                 >
-                
-                    <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1">
-                            <Icon type="user" />
-                            <span className="nav-text">nav 1</span>
-                        </Menu.Item>
-                        <Menu.Item key="2">
-                            <Icon type="video-camera" />
-                            <span className="nav-text">nav 2</span>
-                        </Menu.Item>
-                        <Menu.Item key="3">
-                            <Icon type="upload" />
-                            <span className="nav-text">nav 3</span>
-                        </Menu.Item>
-                        <Menu.Item key="4">
-                            <Icon type="upload" />
-                            <span className="nav-text">nav 4</span>
-                        </Menu.Item>
-                        <Menu.Item key="5">
-                            <Icon type="upload" />
-                            <span className="nav-text">nav 5</span>
-                        </Menu.Item>
+                    <div className="logo" >统一身份认证平台</div>
+                    <Menu style={{width: 150}}
+                        theme='dark'
+                        mode='inline'>
+                        {this.state.menuList}
                     </Menu>
                 </Sider>
                 <Layout>
@@ -59,7 +80,9 @@ class Nav extends Component {
                             />
                         </span>
                         <span style={{color:'#fff', paddingLeft:'2%', fontSize:'1.4em'}}>Information Management System</span>
-                        
+
+
+
                     </Header>
                     <Content style={{ margin: '0 16px' }}>
                         <Breadcrumb style={{ margin: '12px 0' }}>
