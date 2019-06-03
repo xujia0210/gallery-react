@@ -1,4 +1,4 @@
-import { Layout, Menu, Breadcrumb, Icon, Table, Button, Popconfirm, Form, Input } from 'antd';
+import { Layout, Popconfirm, Breadcrumb, Icon, Table, Button, Form, Input } from 'antd';
 import React, { Component } from 'react';
 import { Router, Route, Link, BrowserRouter, Redirect } from 'react-router-dom';
 
@@ -22,9 +22,12 @@ const columns = [{
     title: 'Address',
     dataIndex: 'address',
   }, {
-    title: 'Action', dataIndex: '', key: 'x', render: (text, record) => <a href="javascript:;" 
-    onClick={() => this.handleDelete(text, record)}>Delete</a>,
-  },];
+    title: 'Action', 
+    dataIndex: '', 
+    key: 'x', 
+    render: () => <a href="javascript:;">Delete</a>,
+  }];
+  
   const data = [];
     for (let i = 0; i < 46; i++) {
     data.push({
@@ -49,7 +52,9 @@ class Home extends Component {
             collapsed: !this.state.collapsed,
         });
     }
-
+    deleteArticle(Id) {
+      console.log(Id)
+    }
     start = () => {
         this.setState({ loading: true });
         // ajax request after empty completing
